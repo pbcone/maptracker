@@ -54,9 +54,5 @@ configuration to establish communication with the firebase hosted database
     A service to automatically update the database every 24 hours.
 
 ### Deploy Command Line
-    ```
     npm run build
-    ```
-    ```
     firebase deploy
-    ```
