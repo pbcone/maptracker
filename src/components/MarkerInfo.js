@@ -1,7 +1,8 @@
 import React from 'react';
 
 
-
+//Marker Info is the Component at the bottom of the app that will display the Latitude and Longitude of a 
+//	Marker when it has been clicked by the user.
 var MarkerInfo = React.createClass({
 	renderinfo(){
 		var tableStyle = {
@@ -21,7 +22,6 @@ var MarkerInfo = React.createClass({
 					Click a GPs marker above to display information<br></br>
 				</h2>
 			);
-
 		}
 	},
 

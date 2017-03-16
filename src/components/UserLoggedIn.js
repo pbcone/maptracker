@@ -1,7 +1,6 @@
 import React from 'react';
-// import Image from 'react-image';
 
-
+//	UserLoggedIn is the component used when a user has sucessfully signed into the app using google auth.
 var UserLoggedIn = React.createClass({
 
 

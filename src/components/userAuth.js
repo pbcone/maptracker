@@ -11,12 +11,13 @@ var UserAuth = React.createClass({
             userPicture: null
           };
   },
+  // googleLogin() handles the the authentication using a google profile. Once a user is loged in it will 
+  //  set the logged in state to include the username and photo
   googleLogin(){
     var provider = new firebase.auth.GoogleAuthProvider();
     provider.addScope('profile');
     provider.addScope('email');
     firebase.auth().signInWithPopup(provider).then(function(result) {
-    // This gives you a Google Access Token.
     var token = result.credential.accessToken;
     // The signed-in user info.
     var user = result.user;
@@ -29,10 +30,8 @@ var UserAuth = React.createClass({
     });
     location.reload();
     }.bind(this));
-    
-  
-
   },
+  // checkUserLoggedIn() will manage state of the user name and picture as a user logs in and out of the app
   checkUserLoggedIn(){
     console.log('checking if user is signed in');
     firebase.auth().onAuthStateChanged(function(user) {
@@ -50,6 +49,8 @@ var UserAuth = React.createClass({
         } 
     }.bind(this));
   },
+  //greeting() provides the approperate greeting for a user based on if they are in a signed-in or 
+  //  signed-out state
   greeting(props) {
     if (props) {
       // console.log('logged in');
@@ -88,6 +89,7 @@ var UserAuth = React.createClass({
         </div>);
     }
   },
+  //googleSignout() is called when the signout button is clicked, and will log out the user
   googleSignOut(){
     firebase.auth().signOut();
     this.setState({                
@@ -107,8 +109,6 @@ var UserAuth = React.createClass({
     );
   }
 });
-
-
 
 export default UserAuth;
 

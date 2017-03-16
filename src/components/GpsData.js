@@ -3,41 +3,13 @@ import axios from 'axios';
 import MapComponent from './MapComponent';
 import * as firebase from 'firebase';
 
-// var axios = require('axios');
-
-// function getLat(){
-//     return axios.get('https://api.findmespot.com/spot-main-web/consumer/rest-api/2.0/public/feed/0sWEYq23x7F9dtcE9UYHPdgia5jy5TXY0/message.json');
-// }
-
-// function getLng(){
-//     return null;
-// }
-
-// var gpsData = {
-//     getGpsData: function(){
-//         return axios.all([getLat, getLng])
-//             .then(function(arr){
-//                 return{
-//                     lat: fetch(arr[0]),
-//                     lng: arr[1]
-//                 }
-//             })
-//     }
-// }
-
-// module.exports = gpsData;
 const GpsData = React.createClass({
-
-
     getInitialState : function(){
         return {
             gpsData: [],
             firebaseData: []
-            // lat: 0.10,
-            // lng: 0.0,
         };
-    },
-
+},
 	componentDidMount : function() {
         var array = [];
         firebase.database().ref("gpsMarkers/").on('value', function(snapshot) {
@@ -54,8 +26,8 @@ const GpsData = React.createClass({
             });
         }.bind(this));
         this.serverRequest =
-		  axios.get('https://api.findmespot.com/spot-main-web/consumer/rest-api/2.0/public/feed/0sWEYq23x7F9dtcE9UYHPdgia5jy5TXY0/message.json')
-		      .then(function (response) {
+            axios.get('https://api.findmespot.com/spot-main-web/consumer/rest-api/2.0/public/feed/0sWEYq23x7F9dtcE9UYHPdgia5jy5TXY0/message.json')
+	        .then(function (response) {
                 //   console.log('Component did mount GpsData ' + JSON.stringify(response));
                 var messages = response.data.response.feedMessageResponse.messages.message;
                 // console.log('messages in GpsData ' + JSON.stringify(messages[1]));
@@ -73,9 +45,6 @@ const GpsData = React.createClass({
 		.catch(function (error) {
             console.log("ERROR MESSAGE: " + error);
 		});
-        
-        //Create data prop from firebase
-        
 	},
     componentWillUnmount : function(){
         this.serverRequest.abort();
@@ -87,6 +56,4 @@ const GpsData = React.createClass({
         )
     }
 });
-
-
 module.exports = GpsData;

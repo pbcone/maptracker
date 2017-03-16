@@ -14,24 +14,20 @@ var config = {
 };
 firebase.initializeApp(config);
 
-
-
 var App = React.createClass({
 	
-  	render() {
+	render() {
 		var masterDivStyle ={
 			padding: '15px',
 			maxWidth: '830px',
 			background: 'gray'
 		};
-		
-    	return (
-    		<div style={masterDivStyle}>
-	          	<UserAuth/>
-	          	<GpsData/>
-	    	</div>
-	    );
+		return (
+			<div style={masterDivStyle}>
+				<UserAuth/>
+				<GpsData/>
+			</div>
+		);
 	}
 });
-
 module.exports = App;

@@ -1,10 +1,7 @@
 import React from 'react';
-// import Image from 'react-image';
 
-
+//UserLoggedOut is the component that is called when the user is not logged in
 var UserLoggedOut = React.createClass({
-
-
 	render() {
 		var pStyle ={
 			fontSize: '14pt',
@@ -29,6 +26,3 @@ var UserLoggedOut = React.createClass({
 });
 
 module.exports = UserLoggedOut;
-
-
-// http://www.findmespot.com/en/
