@@ -96,8 +96,6 @@ var MapComponent = React.createClass({
     });
   },
   render() {
-    var database = firebase.database();
-
     var buttonStyle = {
       padding: '5px',
       margin:'0 0 15px 15px',

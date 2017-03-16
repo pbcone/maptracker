@@ -53,7 +53,7 @@ var UserAuth = React.createClass({
   greeting(props) {
     if (props) {
       // console.log('logged in');
-      var buttonStyle = {
+      var signOutButtonStyle = {
           float: 'right',
           padding: '5px',
           margin:'0 15px 0 0',
@@ -64,7 +64,7 @@ var UserAuth = React.createClass({
       return( 
         <div>
           <UserLoggedIn userName={this.state.userName} userPicture={this.state.userPicture}/>
-          <button style={buttonStyle} id="sign-out" onClick={this.googleSignOut}>
+          <button style={signOutButtonStyle} id="sign-out" onClick={this.googleSignOut}>
             Sign-out 
           </button>
           
@@ -72,7 +72,7 @@ var UserAuth = React.createClass({
         );  
   }else{
       // console.log('logged out');
-      var buttonStyle = {
+      var signInButtonStyle = {
           padding: '5px',
           margin:'0 0 0 15px ',
           borderRadius: '5px',
@@ -81,7 +81,7 @@ var UserAuth = React.createClass({
         };
       return (
         <div>
-          <button style= {buttonStyle} id="sign-in" onClick={this.googleLogin}>
+          <button style={signInButtonStyle} id="sign-in" onClick={this.googleLogin}>
           Sign-in with Google
           </button>
           <UserLoggedOut/>
@@ -97,17 +97,11 @@ var UserAuth = React.createClass({
     location.reload();
   },
   componentWillMount(){
-    {this.checkUserLoggedIn()}
+    this.checkUserLoggedIn();
   },
   render(){
     return(
       <div>
-        
-        {/*TODO: make a login confrimation header*/}
-        {/*TODO: initate page reload on login*/}
-        {/*<UserLoggedIn userName={this.state.userName} userPicture={this.state.userPicture}/>*/}
-        
-        {console.log('username: ', this.state.userName)}
         {this.greeting(this.state.userName)}
       </div>
     );

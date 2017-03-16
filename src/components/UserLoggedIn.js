@@ -35,7 +35,7 @@ var UserLoggedIn = React.createClass({
 		};
     	return (
     		<div style={googleCard}>
-			  <img style={googleImg} src={this.props.userPicture}/>
+			  <img style={googleImg} src={this.props.userPicture} alt=''/>
               <p style={googleName}>
                   {this.props.userName} 
               </p>

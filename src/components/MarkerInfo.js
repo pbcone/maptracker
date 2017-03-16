@@ -7,9 +7,9 @@ var MarkerInfo = React.createClass({
 		var tableStyle = {
 			margin: '0 0 0 15px',
 		};
-		if (this.props.lat != null && this.props.lng != null){
+		if (this.props.lat!=null && this.props.lng!=null){
 			return(
-				<h2 style = {tableStyle}>
+				<h2 style={tableStyle}>
 					Click a GPs marker above to display information<br></br>
 					Latitude: {this.props.lat} <br></br>
 					Longitude: {this.props.lng} <br></br>
@@ -17,7 +17,7 @@ var MarkerInfo = React.createClass({
 			);
 		}else{
 			return(
-				<h2 style = {tableStyle}>
+				<h2 style={tableStyle}>
 					Click a GPs marker above to display information<br></br>
 				</h2>
 			);
